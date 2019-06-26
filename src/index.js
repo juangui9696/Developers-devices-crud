@@ -1,20 +1,25 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const path = require('path');
+
 const app = express();
-mongoose.connect('mongodb://localhost/mevn-database')
-    .then(db => console.log('Mongodb on'))
-    .catch(err => console.error(err));
-// Settings
+
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/mevn-crud');
+
+// settings
 app.set('port', process.env.PORT || 3000);
 
-// middleware
+// middlewares
 app.use(express.json());
-// routes
-app.use('tasks', require('./routes/tasks'));
-// static files
-app.use(express.static(__dirname+'/public'));
 
-// server is listening
+// routes
+app.use('/tasks', require('./routes/tasks'));
+
+// static
+app.use(express.static(path.join(__dirname, 'public')));;
+
+// listenning on port
 app.listen(app.get('port'), () => {
-    console.log("server on port " + app.get('port'));
+  console.log(`server on port ${app.get('port')}`);
 });
