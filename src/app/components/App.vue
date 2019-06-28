@@ -1,22 +1,22 @@
 <template>
 <div>
     <h1 >Desarrolladores</h1>
-    <table class="table center">
+    </router-view>
+    <table class="table">
         <td>
-            <tr><th>Name</th><th>Age</th><th>ID</th></tr>
-            <tr v-for="dev in devs">
+            <tr><th>Name</th><th>Age</th><th>ID</th><th>Actions</th></tr>
+            <tr class="w-20" v-for="dev in devs">
                 <td>{{dev.name}}</td>
                 <td>{{dev.age}}</td>
                 <td>{{dev.id}}</td>
                 <td>
-                    <button class="btn btn-primary" @click.prevent="delDev(dev._id)">Remove</button>
-                </td>
-                <td>
-                    <button class="btn btn-primary" @click.prevent="editDev(dev._id)">Edit</button>
+                    <button class="btn btn-primary" >Devices</button>
+                    <button class="btn btn-danger" @click.prevent="delDev(dev._id)">Remove</button>
+                    <button class="btn btn-success" @click.prevent="editDev(dev._id)">Edit</button>
                 </td>
             </tr>
         </td>
-        <td class="card card-body w-100">
+        <td class="card card-body col-md-5 float-left">
             <form @submit.prevent="addDev()">
                 <div class="">
                     <input type="text" placeholder="Name" v-model="Dev.name" class="form-control" >
