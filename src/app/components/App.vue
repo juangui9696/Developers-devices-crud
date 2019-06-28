@@ -2,34 +2,37 @@
 <div>
     <h1 >Desarrolladores</h1>
     </router-view>
-    <table class="table">
-        <td>
-            <tr><th>Name</th><th>Age</th><th>ID</th><th>Actions</th></tr>
-            <tr class="w-20" v-for="dev in devs">
-                <td>{{dev.name}}</td>
-                <td>{{dev.age}}</td>
-                <td>{{dev.id}}</td>
-                <td>
-                    <button class="btn btn-primary" >Devices</button>
-                    <button class="btn btn-danger" @click.prevent="delDev(dev._id)">Remove</button>
-                    <button class="btn btn-success" @click.prevent="editDev(dev._id)">Edit</button>
-                </td>
-            </tr>
-        </td>
-        <td class="card card-body col-md-5 float-left">
-            <form @submit.prevent="addDev()">
-                <div class="">
-                    <input type="text" placeholder="Name" v-model="Dev.name" class="form-control" >
-                    <input type="number" placeholder="Id"  v-model="Dev.id" class="form-control">
-                    <input type="number" placeholder="Age" v-model="Dev.age" class="form-control" >
-                </div>
-                <div class="text-center">
-                    <button class="btn btn-primary">addDev</button>
-                    <div @click="putDev(edit)" v-if="edit" class="btn btn-success">Update</div>
-                </div>
-            </form>
-        </td>
-    </table>
+    <div class="text-center">
+        <table class="table">
+            <td class="md-mt-5">
+                <tr><th>Name</th><th>Age</th><th>ID</th><th>Actions</th></tr>
+                <tr v-for="dev in devs">
+                    <td>{{dev.name}}</td>
+                    <td>{{dev.age}}</td>
+                    <td>{{dev.id}}</td>
+                    <td>
+                        <button class="btn btn-primary" @click.prevent="editDev(dev._id)">Devices</button>
+                        <button class="btn btn-danger" @click.prevent="delDev(dev._id)">Remove</button>
+                        <button class="btn btn-success" @click.prevent="editDev(dev._id)">Edit</button>
+                    </td>
+                </tr>
+            </td>
+            <td class="card card-body">
+                <form @submit.prevent="addDev()">
+                    <div>
+                        <input type="text" placeholder="Name" v-model="Dev.name" class="form-control" >
+                        <input type="number" placeholder="Id"  v-model="Dev.id" class="form-control">
+                        <input type="number" placeholder="Age" v-model="Dev.age" class="form-control" >
+                        <br>
+                    </div>
+                    <div class="text-center">
+                        <button class="btn btn-primary">addDev</button>
+                        <div @click="putDev(edit)" v-if="edit" class="btn btn-success">Update</div>
+                    </div>
+                </form>
+            </td>
+        </table>
+    </div>
 </div>
 </template>
 <script>
@@ -63,7 +66,8 @@ export default {
             .then(data => {
                 this.getDevs();
             })
-            this.Dev={}  
+            this.Dev = {}  
+            this.edit = null
         },
         getDevs() {
             fetch('/devs')
