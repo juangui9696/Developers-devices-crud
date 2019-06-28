@@ -14,7 +14,7 @@ app.set('port', process.env.PORT || 3000);
 app.use(express.json());
 
 // routes
-app.use('/tasks', require('./routes/tasks'));
+app.use('/devs', require('./routes/devs'));
 
 // static
 app.use(express.static(path.join(__dirname, 'public')));;
