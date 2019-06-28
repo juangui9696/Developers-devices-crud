@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './components/App.vue';
-import routera from './router';
+import router from './router';
 
 new Vue({
     router,

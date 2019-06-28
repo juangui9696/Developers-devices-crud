@@ -294,7 +294,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _nod
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-eval("\n\nvar _vue = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.runtime.esm.js\");\n\nvar _vue2 = _interopRequireDefault(_vue);\n\nvar _App = __webpack_require__(/*! ./components/App.vue */ \"./src/app/components/App.vue\");\n\nvar _App2 = _interopRequireDefault(_App);\n\nvar _router = __webpack_require__(/*! ./router */ \"./src/app/router.js\");\n\nvar _router2 = _interopRequireDefault(_router);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\nnew _vue2[\"default\"]({\n  router: router,\n  render: function render(h) {\n    return h(_App2[\"default\"]);\n  }\n}).$mount('#app');\n\n//# sourceURL=webpack:///./src/app/index.js?");
+eval("\n\nvar _vue = __webpack_require__(/*! vue */ \"./node_modules/vue/dist/vue.runtime.esm.js\");\n\nvar _vue2 = _interopRequireDefault(_vue);\n\nvar _App = __webpack_require__(/*! ./components/App.vue */ \"./src/app/components/App.vue\");\n\nvar _App2 = _interopRequireDefault(_App);\n\nvar _router = __webpack_require__(/*! ./router */ \"./src/app/router.js\");\n\nvar _router2 = _interopRequireDefault(_router);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { \"default\": obj }; }\n\nnew _vue2[\"default\"]({\n  router: _router2[\"default\"],\n  render: function render(h) {\n    return h(_App2[\"default\"]);\n  }\n}).$mount('#app');\n\n//# sourceURL=webpack:///./src/app/index.js?");
 
 /***/ }),
 
