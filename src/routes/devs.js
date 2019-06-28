@@ -9,6 +9,11 @@ router.get('/', async (req, res) => {
     res.json(devs);
 });
 
+router.get('/:id', async (req, res) => {
+    const dev = await Dev.findById(req.params.id);
+    res.json(dev);
+  });
+
 router.post('/', async (req, res) => {
     const devs= new Dev(req.body);
     await devs.save();
